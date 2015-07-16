@@ -8,23 +8,32 @@
 
 1. 安装Flash插件：
 
-```
-$ bash flash.sh
-```
+    ```
+    $ bash flash.sh
+    ```
 
 2. 安装支付宝插件：
 
-```
-$ bash alipay.sh
-```
+    ```
+    $ bash alipay.sh
+    ```
 
 3. 安装工商银行插件：
 
-```
-$ bash icbc.sh
-```
+    ```
+    $ bash icbc.sh
+    ```
 
 若要更新上述插件，再次执行以上命令即可。
+
+## 参考
+
+Flash插件安装脚本修改自：
+https://gist.github.com/stefanschmidt/9510292
+
+## 声明
+
+对于使用本项目安装插件的各种可能的损害，脚本作者不承担任何责任。您需要自行斟酌是否使用本项目安装插件，如果您对相关知识不甚了解，请避免使用本项目。
 
 ## LICENSE
 
