@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-FLASH_URL="http://fpdownload.macromedia.com/get/flashplayer/current/licensing/mac/install_flash_player_13_osx.dmg"
+FLASH_VER=$(/usr/bin/curl -s http://www.adobe.com/software/flash/about/ | sed -n '/Safari/,/<\/tr/s/[^>]*>\([0-9].*\)<.*/\1/p')
+FLASH_URL="https://fpdownload.macromedia.com/get/flashplayer/pdc/$FLASH_VER/install_flash_player_osx.dmg"
 FLASH_DMG=$(mktemp -d -t flash_dmg)/flash.dmg
 FLASH_MOUNTPOINT=$(mktemp -d -t flash_mountpoint)
 
@@ -28,7 +29,7 @@ cp -f "$FLASH_INSTALL_SRC/Library/Internet Plug-Ins/flashplayer.xpt" "$HOME/Libr
 
 find "$HOME/Library/Internet Plug-Ins/Flash Player.plugin" -type d -exec chmod 755 {} \;
 find "$HOME/Library/Internet Plug-Ins/Flash Player.plugin" -type f -exec chmod 644 {} \;
-chmod "$HOME/Library/Internet Plug-Ins/flashplayer.xpt"
+chmod 644 "$HOME/Library/Internet Plug-Ins/flashplayer.xpt"
 
 hdiutil detach $FLASH_MOUNTPOINT -force
 
